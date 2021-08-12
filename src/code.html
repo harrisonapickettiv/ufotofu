@@ -178,21 +178,118 @@
           <div class="col-lg-8">
             <pre class="line-numbers">
               <code class="language-javascript">
-                // This is a comment
-
-                const helloWorld = () => {
-                  console.log("Hello, World!");
+                const resetDisplay = () => {
+                  const result = document.getElementById("result");
+                  const error = document.getElementById("error");
+                
+                  result.setAttribute("hidden", true);
+                  result.setAttribute("aria-hidden", true);
+                  error.setAttribute("hidden", true);
+                  error.setAttribute("aria-hidden", true);
+                };
+                
+                const getValues = () => {
+                  const string = document.getElementById("userString").value;
+                  const error = !string || !string.trim().length;
+                
+                  return { error, string };
+                };
+                
+                const displayError = () => {
+                  const error = document.getElementById("error");
+                
+                  error.removeAttribute("hidden");
+                  error.removeAttribute("aria-hidden");
+                };
+                
+                const isPalindrome = (p) => {
+                  const string = p.replace(/\s*/g, "").toLowerCase();
+                
+                  let s = 0;
+                  let e = string.length - 1;
+                  let success = true;
+                
+                  while (success && s < e) {
+                    success = string[s] === string[e];
+                    s += 1;
+                    e -= 1;
+                  }
+                
+                  return { string, success };
+                };
+                
+                const displayResult = ({ string, success }) => {
+                  document.getElementById("resMsg").innerHTML = success
+                    ? "Well Done! You entered a palindrome!"
+                    : "Sorry! You did not enter a palindrome!";
+                
+                  document.getElementById("reversed").innerHTML = string
+                    .split("")
+                    .reverse()
+                    .join("");
+                
+                  const result = document.getElementById("result");
+                  result.removeAttribute("hidden");
+                  result.removeAttribute("aria-hidden");
+                };
+                
+                const ufotofu = () => {
+                  resetDisplay();
+                  const { error, string } = getValues();
+                  if (error) return displayError();
+                  displayResult(isPalindrome(string));
                 };
 
               </code>
             </pre>
           </div>
           <div class="col-lg-4">
-            <p>The code is structured in one function.</p>
-            <h5>Hello World</h5>
             <p>
-              Hello World is a function that logs 'Hello, World!' to the
-              console.
+              The code is structured as several functions with a primary
+              controller exported to the application.
+            </p>
+
+            <h5>Reset Display</h5>
+            <p>
+              A function that resets critical components of the display to
+              ensure correct viewing by hiding the error and results elements.
+            </p>
+
+            <h5>Get Values</h5>
+            <p>
+              A function that gets the value of 'userString' from the user
+              interface. Returns the value and whether it is valid input.
+            </p>
+
+            <h5>Display Error</h5>
+            <p>
+              A function that reveals an error message hidden from view. The
+              message indicates that user must enter a word or phrase.
+            </p>
+
+            <h5>Is Palindrome?</h5>
+            <p>
+              A function that takes a string as input and checks if the string
+              is a palindrome. Removes all whitespace and switches all
+              characters to lower case before the check. Returns the modified
+              string and whether it is a palindrome.
+            </p>
+
+            <h5>Display Result</h5>
+            <p>
+              A function that takes a string and a boolean value and displays a
+              message to the user. If the boolean is true the message indicates
+              that the string is a palindrome, if false the message indicates
+              otherwise. The reverse of the string is shown to illustrate the
+              (non-)palindrome.
+            </p>
+
+            <h5>UFO Tofu</h5>
+            <p>
+              The main application function. Calls getValues to get and validate
+              user input. Then displays an error if getValues finds an error in
+              input. Otherwise, calls isPalindrome followed by displayResult to
+              generate and display a message to the user.
             </p>
           </div>
         </div>

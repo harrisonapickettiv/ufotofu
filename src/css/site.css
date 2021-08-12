@@ -66,3 +66,8 @@ footer .social > a:hover {
 main > .container {
   padding: 60px 15px 0;
 }
+
+.textLogo {
+  font-family: "Berkshire Swash", cursive;
+  font-size: 2rem;
+}

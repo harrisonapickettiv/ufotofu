@@ -951,6 +951,11 @@
     "@babel/helper-validator-identifier" "^7.14.8"
     to-fast-properties "^2.0.0"
 
+"@fontsource/berkshire-swash@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/berkshire-swash/-/berkshire-swash-4.5.0.tgz#738b23405e8d67428813a1a982670b6042ce6150"
+  integrity sha512-ChrR0n7deioqtoK/88i+JoY/zGwIJ0tK8bLSUYmjsnVlZHrGVHS2N5k8jLVK455ESYDQy1dkXZ0zxDRI4IZ2/A==
+
 "@fortawesome/fontawesome-free@^5.15.3":
   version "5.15.3"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.15.3.tgz#c36ffa64a2a239bf948541a97b6ae8d729e09a9a"

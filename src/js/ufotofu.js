@@ -23,7 +23,7 @@ const displayError = () => {
 };
 
 const isPalindrome = (p) => {
-  const string = p.replace(/\s*/g, "").toLowerCase();
+  const string = p.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
 
   let s = 0;
   let e = string.length - 1;
